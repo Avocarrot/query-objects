@@ -1,0 +1,24 @@
+{
+  "name": "object-query",
+  "version": "0.0.1",
+  "description": "Query utilities to filter results from an array of objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha --recursive test",
+    "cov": "NODE_ENV=test istanbul cover node_modules/.bin/_mocha -- --recursive test"
+  },
+  "keywords": [
+    "query",
+    "object",
+    "array",
+    "of",
+    "objects"
+  ],
+  "author": "giorgosera",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.4",
+    "mocha": "^3.0.0"
+  }
+}
