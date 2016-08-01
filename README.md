@@ -7,20 +7,27 @@ Given an array of objects returns those that satisfy some or all desired filters
 ## Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
+- [Filtering objects](#filtering-objects)
+- [Constructing filters](#constructing-filters)
+- [Examples](#examples)
 - [Contributing](#contributing)
 
 ## Installation
 
 ```npm install filter-objects```
 
-## Usage
+## Filtering objects 
 
-- ```filter(arr, filters, operator)```
+```filter(arr, filters, operator)```
 
 Returns an array of all the objects in `arr` that satisfy the `filters`. `operator` can take two values `every` or 'some'. If 'every' is used then the returned objects satisfy *every* filter or alternatively if 'some' is used then the returned objects satisfy at least one of the filters.
 
-### Examples
+## Constructing filters
+
+`field` - The name of the property we will filter on
+`value` - The value of the property we will filter on
+`operator` - The filter operator. Supported operators `equals`, `contains`, `gt`, `gte`, `lt`, `lte`
+## Examples
 
 ```javascript
   const filters = [
