@@ -34,6 +34,7 @@ describe('Filter module tests', () => {
   it('isSatisfied(filter, obj) should return true if `filter` is satisfied by `obj` otherwise false', () => {
     isSatisfied({field: 'foo', value: 'bar', operator: 'equals'}, {'foo': 'bar'}).should.be.true;
     isSatisfied({field: 'foo', value: 'bar', operator: 'equals'}, {'foo': 'baz'}).should.be.false;
+    isSatisfied({field: 'foo', value: 'bar', operator: 'equals'}, {'fiz': 'bar'}).should.be.false;
   });
 
 });
