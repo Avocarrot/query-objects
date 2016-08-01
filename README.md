@@ -25,8 +25,11 @@ Returns an array of all the objects in `arr` that satisfy the `filters`. `operat
 ## Constructing filters
 
 `field` - The name of the property we will filter on
+
 `value` - The value of the property we will filter on
+
 `operator` - The filter operator. Supported operators `equals`, `contains`, `gt`, `gte`, `lt`, `lte`
+
 ## Examples
 
 ```javascript
