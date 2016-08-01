@@ -1,6 +1,6 @@
 # query-objects
 
-[![NPM](https://nodei.co/npm/openrtb.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/query-objects/)
+[![NPM](https://nodei.co/npm/query-objects.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/query-objects/)
 
 ## Purpose
 
