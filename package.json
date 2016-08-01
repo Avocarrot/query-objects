@@ -1,7 +1,7 @@
 {
-  "name": "object-query",
+  "name": "filter-objects",
   "version": "0.0.1",
-  "description": "Query utilities to filter results from an array of objects",
+  "description": "Given an array of objects returns those that satisfy some or all desired filters",
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test mocha --recursive test",
@@ -9,9 +9,8 @@
   },
   "keywords": [
     "query",
-    "object",
+    "filter",
     "array",
-    "of",
     "objects"
   ],
   "author": "giorgosera",
