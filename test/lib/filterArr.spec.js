@@ -8,11 +8,13 @@ describe('filter(arr, filters, operator) should', () => {
   const filters = [
     {
       field: 'foo',
-      value: 1
+      value: 1,
+      operator: 'equals'
     },
     {
       field: 'bar',
-      value: 'baz'
+      value: 'baz',
+      operator: 'equals'
     }
   ];
 
@@ -61,8 +63,8 @@ describe('filter(arr, filters, operator) should', () => {
 
   it('throw an error if `filters` contains an object which is not a valid filter', () => {
     (() => {
-      filter([], [{key: 'value'}])();
-    }).should.throw('Invalid filter object in `filters` array');
+      filter([], [{key: 'value'}], 'every')();
+    }).should.throw('Object is not a valid filter');
   });
 
   it('throw an error if `operator` is invalid', () => {

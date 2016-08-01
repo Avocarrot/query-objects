@@ -26,11 +26,13 @@ Returns an array of all the objects in `arr` that satisfy the `filters`. `operat
   const filters = [
     {
       field: 'foo',
-      value: 1
+      value: 1,
+      operator: 'equals'
     },
     {
       field: 'bar',
-      value: 'baz'
+      value: 'baz',
+      operator: 'equals'
     }
   ];
 
