@@ -1,7 +1,7 @@
 const should = require('chai').Should();
 const contains = require('../../lib/operators').contains;
 const equals = require('../../lib/operators').equals;
-const note = require('../../lib/operators').note;
+const ne = require('../../lib/operators').ne;
 const gt = require('../../lib/operators').gt;
 const gte = require('../../lib/operators').gte;
 const lt = require('../../lib/operators').lt;
@@ -25,9 +25,9 @@ describe('Operators module tests', () => {
     equals(1, 10).should.be.false;
   });
 
-  it('note(val1, val2) should return true `val1` not equals `val2` otherwise false', () => {
-    note(1, 1).should.be.false;
-    note(1, 10).should.be.true;
+  it('ne(val1, val2) should return true `val1` not equals `val2` otherwise false', () => {
+    ne(1, 1).should.be.false;
+    ne(1, 10).should.be.true;
   });
 
   it('gt(val1, val2) should return true `val1` is greater than `val2` otherwise false', () => {
