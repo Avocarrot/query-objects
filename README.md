@@ -60,7 +60,7 @@ A utility library which filters objects from an array of objects based on a set 
 
 ```npm install filter-objects```
 
-## Usage 
+## Usage
 
 1. Create a query object by using `query(arr)` where `arr` is the array of objects you want to query.
 
@@ -68,7 +68,7 @@ A utility library which filters objects from an array of objects based on a set 
 const q = query(arr)
 ```
 
-2. Finally get the result array using: 
+2. Finally get the result array using:
 
 ```javascript
 q.every(filters); //returns an array of all objects in `arr` that satisfy EVERY filter
@@ -82,11 +82,11 @@ q.some(filters); //returns an array of all objects in `arr` that satisfy SOME of
 
 `value` - The value of the property we will filter on
 
-`operator` - The filter operator. Supported operators `equals`, `contains`, `gt`, `gte`, `lt`, `lte`
+`operator` - The filter operator. Supported operators `equals`, `contains`, `gt`, `gte`, `lt`, `lte`, `ne`
 
 ## Contributing
 
-This project is work in progress and we'd love more people contributing to it. 
+This project is work in progress and we'd love more people contributing to it.
 
 1. Fork the repo
 2. Apply your changes
