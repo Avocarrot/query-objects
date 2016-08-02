@@ -4,13 +4,55 @@
 
 ## Purpose
 
-Given an array of objects returns those that satisfy some or all desired filters.
+A utility library which filters objects from an array of objects based on a set of filter conditions.
+
+```javascript
+  const query = require('query-objects');
+
+  const users = [
+    {
+      firstName: 'George',
+      lastName: 'Eracleous',
+      age: 28
+    },
+    {
+      firstName: 'Erica',
+      lastName: 'Archer',
+      age: 50
+    },
+    {
+      firstName: 'Leo',
+      lastName: 'Andrews',
+      age: 20
+    }
+  ];
+
+  const filters = [
+    {
+      field: 'age',
+      value: 30,
+      operator: 'lt'
+    },
+    {
+      field: 'firstName',
+      value: 'Erica',
+      operator: 'equals'
+    }
+  ];
+
+  // Filter all users that are less than 30 years old AND their first name is Erica
+  const res = query(users).every(filters);
+
+  // Filter all users that are less than 30 years old OR their first name is Erica
+  const res = query(users).some(filters);
+
+```
 
 ## Contents
 
 - [Installation](#installation)
-- [Filtering objects](#filtering-objects)
-- [Constructing filters](#constructing-filters)
+- [Usage](#usage)
+- [Filters](#filters)
 - [Examples](#examples)
 - [Contributing](#contributing)
 
@@ -18,54 +60,29 @@ Given an array of objects returns those that satisfy some or all desired filters
 
 ```npm install filter-objects```
 
-## Filtering objects 
+## Usage 
 
-```filter(arr, filters, operator)```
+1. Create a query object by using `query(arr)` where `arr` is the array of objects you want to query.
 
-Returns an array of all the objects in `arr` that satisfy the `filters`. `operator` can take two values `every` or 'some'. If 'every' is used then the returned objects satisfy *every* filter or alternatively if 'some' is used then the returned objects satisfy at least one of the filters.
+```javascript
+const q = query(arr)
+```
 
-## Constructing filters
+2. Finally get the result array using: 
+
+```javascript
+q.every(filters); //returns an array of all objects in `arr` that satisfy EVERY filter
+
+q.some(filters); //returns an array of all objects in `arr` that satisfy SOME of the filters
+```
+
+## Filters
 
 `field` - The name of the property we will filter on
 
 `value` - The value of the property we will filter on
 
 `operator` - The filter operator. Supported operators `equals`, `contains`, `gt`, `gte`, `lt`, `lte`
-
-## Examples
-
-```javascript
-  const filters = [
-    {
-      field: 'foo',
-      value: 1,
-      operator: 'equals'
-    },
-    {
-      field: 'bar',
-      value: 'baz',
-      operator: 'equals'
-    }
-  ];
-
-  const arr = [
-    {
-      foo: 1,
-      bar: 'baz'
-    },
-    {
-      foo: 2,
-      bar: 'baz'
-    },
-    {
-      foo: 3,
-      bar: 'fiz'
-    }
-  ];
-
-  let res = filter(arr, filters, 'every');
-```
-
 
 ## Contributing
 

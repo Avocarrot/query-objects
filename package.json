@@ -1,7 +1,7 @@
 {
   "name": "query-objects",
-  "version": "0.0.1",
-  "description": "Given an array of objects returns those that satisfy some or all desired filters",
+  "version": "0.0.2",
+  "description": "A utility library which filters objects from an array of objects based on a set of filter conditions",
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test mocha --recursive test",
