@@ -1,5 +1,5 @@
 const should = require('chai').Should();
-const query = require('../../lib');
+const queryable = require('../../lib');
 
 describe('Module Tests', () => {
 
@@ -26,26 +26,26 @@ describe('Module Tests', () => {
     }
   ];
 
-  it('query(arr) should return a query object', () => {
-    query([]).should.have.property('every');
-    query([]).should.have.property('some');
+  it('queryable(arr) should return a queryable object', () => {
+    queryable([]).should.have.property('and');
+    queryable([]).should.have.property('or');
   });
 
   it('throw an error if `arr` is not an array', () => {
     (() => {
-      query();
+      queryable();
     }).should.throw('`arr` must be an array of objects');
 
     (() => { 
-      query('this is a string');
+      queryable('this is a string');
     }).should.throw('`arr` must be an array of objects');
 
     (() => { 
-      query(1234);
+      queryable(1234);
     }).should.throw('`arr` must be an array of objects');
   });
 
-  it('query(arr).every(filters) should return all results that satisfy all filters', () => {
+  it('queryable(arr).and(filters) should return all results that satisfy all filters', () => {
     const filters = [
       {
         field: 'name',
@@ -59,10 +59,10 @@ describe('Module Tests', () => {
       }
     ];
     const expected = [people[0]];
-    query(people).every(filters).should.eql(expected);
+    queryable(people).and(filters).should.eql(expected);
   });
 
-  it('query(arr).some(filters) should return all results that satisfy at least one of the filters', () => {
+  it('queryable(arr).or(filters) should return all results that satisfy at least one of the filters', () => {
     const filters = [
       {
         field: 'name',
@@ -76,7 +76,7 @@ describe('Module Tests', () => {
       }
     ];
     const expected = [people[0], people[1], people[2]];
-    query(people).some(filters).should.eql(expected);
+    queryable(people).or(filters).should.eql(expected);
   });
 
 });

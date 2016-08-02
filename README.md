@@ -7,7 +7,7 @@
 A utility library which filters objects from an array of objects based on a set of filter conditions.
 
 ```javascript
-  const query = require('query-objects');
+  const queryable = require('query-objects');
 
   const users = [
     {
@@ -41,10 +41,10 @@ A utility library which filters objects from an array of objects based on a set 
   ];
 
   // Filter all users that are less than 30 years old AND their first name is Erica
-  const res = query(users).every(filters);
+  const res = queryable(users).and(filters);
 
   // Filter all users that are less than 30 years old OR their first name is Erica
-  const res = query(users).some(filters);
+  const res = queryable(users).or(filters);
 
 ```
 
@@ -62,18 +62,18 @@ A utility library which filters objects from an array of objects based on a set 
 
 ## Usage
 
-1. Create a query object by using `query(arr)` where `arr` is the array of objects you want to query.
+1. Create a queryable object using `queryable(arr)` where `arr` is the array of objects you want to query.
 
 ```javascript
-const q = query(arr)
+const q = queryable(arr);
 ```
 
 2. Finally get the result array using:
 
 ```javascript
-q.every(filters); //returns an array of all objects in `arr` that satisfy EVERY filter
+q.and(filters); //returns an array of all objects in `arr` that satisfy EVERY filter
 
-q.some(filters); //returns an array of all objects in `arr` that satisfy SOME of the filters
+q.or(filters); //returns an array of all objects in `arr` that satisfy SOME of the filters
 ```
 
 ## Filters
