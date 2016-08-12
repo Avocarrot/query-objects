@@ -29,24 +29,6 @@ describe('Filter module tests', () => {
         operator: 'wrong'
       });
     }).should.throw('Invalid filter operator');
-
-    (() => {
-      parseFilter({
-        field: 'foo',
-        value: 'bar',
-        operator: 'equals',
-        matchMissing: 'true'
-      });
-    }).should.throw('`matchMissing` must be a boolean');
-
-    (() => {
-      parseFilter({
-        field: 'foo',
-        value: 'bar',
-        operator: 'equals',
-        matchEmpty: 'true'
-      });
-    }).should.throw('`matchEmpty` must be a boolean');
   });
 
   it('isSatisfied(filter, obj) should return true if `filter` is satisfied by `obj` otherwise false', () => {
