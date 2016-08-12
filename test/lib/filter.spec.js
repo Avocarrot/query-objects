@@ -29,12 +29,44 @@ describe('Filter module tests', () => {
         operator: 'wrong'
       });
     }).should.throw('Invalid filter operator');
+
+    (() => {
+      parseFilter({
+        field: 'foo',
+        value: 'bar',
+        operator: 'equals',
+        matchMissing: 'true'
+      });
+    }).should.throw('`matchMissing` must be a boolean');
+
+    (() => {
+      parseFilter({
+        field: 'foo',
+        value: 'bar',
+        operator: 'equals',
+        matchEmpty: 'true'
+      });
+    }).should.throw('`matchEmpty` must be a boolean');
   });
 
   it('isSatisfied(filter, obj) should return true if `filter` is satisfied by `obj` otherwise false', () => {
-    isSatisfied({field: 'foo', value: 'bar', operator: 'equals'}, {'foo': 'bar'}).should.be.true;
-    isSatisfied({field: 'foo', value: 'bar', operator: 'equals'}, {'foo': 'baz'}).should.be.false;
-    isSatisfied({field: 'foo', value: 'bar', operator: 'equals'}, {'fiz': 'bar'}).should.be.false;
+    let filter = {field: 'foo', value: 'bar', operator: 'equals'};
+    isSatisfied(filter, {'foo': 'bar'}).should.be.true;
+    isSatisfied(filter, {'foo': 'baz'}).should.be.false;
+    isSatisfied(filter, {'fiz': 'bar'}).should.be.false;
+
+    // Test `matchMissing`
+    filter.matchMissing = true;
+    isSatisfied(filter, {}).should.be.true;
+
+    // Test `matchEmpty`
+    filter.matchEmpty = true;
+    isSatisfied(filter, {'foo': null}).should.be.true;
+    isSatisfied(filter, {'foo': []}).should.be.true;
+    isSatisfied(filter, {'foo': undefined}).should.be.true;
+    isSatisfied(filter, {'foo': ''}).should.be.true;
+    isSatisfied(filter, {'foo': {}}).should.be.true;
+
   });
 
 });
