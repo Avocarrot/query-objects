@@ -78,11 +78,15 @@ q.or(filters); //returns an array of all objects in `arr` that satisfy SOME of t
 
 ## Filters
 
-`field` - The name of the property we will filter on
+*`field`* - The name of the property we will filter on
 
-`value` - The value of the property we will filter on
+*`value`* - The value of the property we will filter on
 
-`operator` - The filter operator. Supported operators `equals`, `contains`, `gt`, `gte`, `lt`, `lte`, `ne`
+*`operator`* - The filter operator. Supported operators `equals`, `contains`, `gt`, `gte`, `lt`, `lte`, `ne`
+
+*`matchMissing`* - If `true` the filter will be satisfied even if `field` property is not present on the object. Default is `false`.
+
+*`matchEmpty`* - If `true` the filter will be satisfied even if `value` property is empty. Empty values are `[]`, `undefined`, `null`, `''` and `{}`. Default is `false`.
 
 ## Contributing
 
