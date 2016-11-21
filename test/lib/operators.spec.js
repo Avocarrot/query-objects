@@ -1,5 +1,6 @@
 const should = require('chai').Should();
 const contains = require('../../lib/operators').contains;
+const notcontains = require('../../lib/operators').notcontains;
 const equals = require('../../lib/operators').equals;
 const ne = require('../../lib/operators').ne;
 const gt = require('../../lib/operators').gt;
@@ -16,6 +17,17 @@ describe('Operators module tests', () => {
 
     (() => {
       contains('', 10);
+    }).should.throw('`val1` must be an array');
+
+  });
+
+  it('notcontains(val1, val2) should return true `val1` notcontains `val2` otherwise false', () => {
+    const val1 = [1, 2, 3];
+    notcontains(val1, 1).should.be.false;
+    notcontains(val1, 10).should.be.true;
+
+    (() => {
+      notcontains('', 10);
     }).should.throw('`val1` must be an array');
 
   });
