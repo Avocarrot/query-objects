@@ -1,6 +1,6 @@
 {
   "name": "query-objects",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A utility library which filters objects from an array of objects based on a set of filter conditions",
   "main": "index.js",
   "scripts": {
